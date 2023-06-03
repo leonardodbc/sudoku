@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 using namespace std;
 #define MAT 9
 
@@ -27,7 +28,7 @@ int main() {
             case 1: 
             {
                 system("cls");  
-                
+
                 int matriz[MAT][MAT] = 
                 {
                     4, 9, 5, 2, 8, 7, 3, 6, 1,
@@ -41,12 +42,35 @@ int main() {
                     8, 7, 9, 3, 2, 1, 5, 4, 6
                 };
 
-                for (int i = 0; i < MAT; i ++) {
-                    for (int j = 0; j < MAT; j ++) {
-                        cout << matriz[i][j] << " ";
-                    }
-                    cout << endl;
+                int random;
+                random = (rand() + time(NULL)) % 4 + 1;
+
+                int gabarito[MAT][MAT] = {0};
+
+                switch (random)
+                {
+                case 1:
+                    //Matriz normal
+                    break;
+                
+                case 2:
+                    //Matriz transposta
+                    break;
+
+                case 3:
+                    //Matriz invertida por linha
+                    break;
+
+                case 4:
+                    //Matriz invertida por coluna
+                    break;
+
+                default:
+                    break;
                 }
+
+
+
 
 
                 system("pause");
