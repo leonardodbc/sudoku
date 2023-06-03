@@ -24,42 +24,37 @@ int main() {
 
         switch (auxMenu)
         {
-            case 1:
+            case 1: 
+            {
                 system("cls");  
                 
                 int matriz[MAT][MAT] = 
                 {
-                    {4, 9, 5, 2, 8, 7, 3, 6, 1}
+                    4, 9, 5, 2, 8, 7, 3, 6, 1,
+                    7, 2, 8, 6, 1, 3, 4, 9, 5,
+                    3, 6, 1, 9, 5, 4, 7, 2, 8,
+                    6, 5, 3, 8, 4, 9, 2, 1, 7,
+                    9, 8, 4, 1, 7, 2, 6, 5, 3,
+                    2, 1, 7, 5, 3, 6, 9, 8, 4,
+                    1, 3, 2, 4, 6, 5, 8, 7, 9,
+                    5, 4, 6, 7, 9, 8, 1, 3, 2,
+                    8, 7, 9, 3, 2, 1, 5, 4, 6
+                };
 
+                for (int i = 0; i < MAT; i ++) {
+                    for (int j = 0; j < MAT; j ++) {
+                        cout << matriz[i][j] << " ";
+                    }
+                    cout << endl;
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 system("pause");
                 system("cls");
                 break;
-             
+            }
             case 2: 
+            {
                 system("cls");
                 cout << "Como jogar:\n\n";
                 cout << "Escolha uma coordenada (que nao tenha numero), decidindo a linha e a coluna.\n\n";
@@ -68,16 +63,19 @@ int main() {
                 system("pause");
                 system("cls");
                 break;
-
-            case 3:
+            }
+            case 3: 
+            {
                 system("cls");
                 cout << "Equipe de Desenvolvimento: Carlos Osair De Souza, Eduardo Lechinski Ramos e Leonardo de Borba Cardoso\nMes/Ano: 06/2023\nProfessor: Rafael Ballottin Martins\nDisciplina: Algoritmos e Programação\n";
                 system("pause");
                 system("cls");
                 break;
-
-            case 4:
+            }
+            case 4: 
+            {
                 return 0;
+            }
         }
     }
     return 0;
