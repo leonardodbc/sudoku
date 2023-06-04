@@ -1,7 +1,7 @@
 #include <iostream>
 #include <time.h>
 using namespace std;
-#define MAT 9
+#define TAM 9
 
 int main() {
 
@@ -29,7 +29,7 @@ int main() {
             {
                 system("cls");  
 
-                int matriz[MAT][MAT] = 
+                int sudoku[TAM][TAM] = 
                 {
                     4, 9, 5, 2, 8, 7, 3, 6, 1,
                     7, 2, 8, 6, 1, 3, 4, 9, 5,
@@ -44,34 +44,79 @@ int main() {
 
                 int random;
                 random = (rand() + time(NULL)) % 4 + 1;
-
-                int gabarito[MAT][MAT] = {0};
+                int gabarito[TAM][TAM] = {0};
+                cout << random;
+                cout << endl << endl;
 
                 switch (random)
-                {
-                case 1:
-                    //Matriz normal
-                    break;
-                
-                case 2:
-                    //Matriz transposta
-                    break;
+                { // Switch para randomizar a matriz gabarito
 
-                case 3:
-                    //Matriz invertida por linha
-                    break;
+                    case 1: //Matriz normal
+                    {
+                        for (int i = 0; i < TAM; i ++) {
+                            for (int j = 0; j < TAM; j ++) {
+                                gabarito[i][j] = sudoku[i][j];
+                            }
+                        }
 
-                case 4:
-                    //Matriz invertida por coluna
-                    break;
+                        break;
+                    }
 
-                default:
-                    break;
+                    case 2: //Matriz transposta
+                    {
+                        for (int i = 0; i < TAM; i++) {
+                            for (int j = 0; j < TAM; j ++) {
+                                gabarito[i][j] = sudoku[j][i];
+                            }
+                        }
+
+                        for (int i = 0; i < TAM; i++) {
+                            for (int j = 0; j < TAM; j ++) {
+                                cout << gabarito[i][j] << " ";
+                            }
+                            cout << endl;
+                        }
+
+                        break;
+                    }
+
+                    case 3: // Matriz invertida por linha
+                    {
+                        for (int i = TAM - 1; i >= 0; i--) {
+                            for (int j = 0; j < TAM; j++) {
+                                gabarito[TAM - 1 - i][j] = sudoku[i][j];
+                            }
+                        }
+
+                        for (int i = 0; i < TAM; i++) {
+                            for (int j = 0; j < TAM; j++) {
+                                cout << gabarito[i][j] << " ";
+                            }
+                            cout << endl;
+                        }
+
+                        break;
+                    }
+
+                    case 4: //Matriz invertida por coluna
+                    {
+                        for (int i = 0; i < TAM; i++) {
+                            for (int j = TAM - 1; j >= 0; j--) {
+                                gabarito[i][TAM - 1 - j] = sudoku[i][j];
+                            }
+                        }
+
+                        for (int i = 0; i < TAM; i++) {
+                            for (int j = 0; j < TAM; j++) {
+                                cout << gabarito[i][j] << " ";
+                            }
+                            cout << endl;
+                        }
+                    
+                        break;
+                    }
+
                 }
-
-
-
-
 
                 system("pause");
                 system("cls");
