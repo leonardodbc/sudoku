@@ -25,7 +25,7 @@ int main() {
 
         switch (auxMenu)
         {
-            case 1: 
+            case 1: // Jogar
             {
                 system("cls");  
 
@@ -42,14 +42,11 @@ int main() {
                     8, 7, 9, 3, 2, 1, 5, 4, 6
                 };
 
-                int random;
+                int random, gabarito[TAM][TAM] = {0};
                 random = (rand() + time(NULL)) % 4 + 1;
-                int gabarito[TAM][TAM] = {0};
-                cout << random;
-                cout << endl << endl;
 
-                switch (random)
-                { // Switch para randomizar a matriz gabarito
+                switch (random) // Switch para randomizar a matriz gabarito
+                { 
 
                     case 1: //Matriz normal
                     {
@@ -118,11 +115,42 @@ int main() {
 
                 }
 
+                // Retirar as 40 posições aleatoriamente
+
+                int linhas[TAM] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+                char colunas[TAM] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};
+                int casas = 41, numero = 0, linha = 0;
+                char coluna;
+                while (casas > 0) {
+                    system("cls");
+                    cout << "X  ";
+                    for (int i = 0; i < TAM; i ++) { // imprimir as letras da coluna
+                        cout << colunas[i] << " ";
+                    }
+
+                    cout << endl << endl;
+
+                    for (int i = 0; i < TAM; i ++) { // imprimir o numero das linhas e a matriz gabarito
+                        cout << linhas[i] << "  ";
+                        for (int j = 0; j < TAM; j ++) {
+                            cout << gabarito[i][j] << " ";
+                        }
+                        cout << endl;
+                    }
+                    
+                    cout << endl;
+                    cout << "Informe sua jogada: ";
+                    cin >> coluna >> linha >> numero;
+                    cout << endl;
+                    system("pause");
+                    casas = casas - 20;
+                };
+
                 system("pause");
                 system("cls");
                 break;
             }
-            case 2: 
+            case 2: // Como jogar
             {
                 system("cls");
                 cout << "Como jogar:\n\n";
@@ -133,7 +161,7 @@ int main() {
                 system("cls");
                 break;
             }
-            case 3: 
+            case 3: // Sobre
             {
                 system("cls");
                 cout << "Equipe de Desenvolvimento: Carlos Osair De Souza, Eduardo Lechinski Ramos e Leonardo de Borba Cardoso\nMes/Ano: 06/2023\nProfessor: Rafael Ballottin Martins\nDisciplina: Algoritmos e Programação\n";
@@ -141,7 +169,7 @@ int main() {
                 system("cls");
                 break;
             }
-            case 4: 
+            case 4: // Sair
             {
                 return 0;
             }
