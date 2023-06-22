@@ -54,8 +54,6 @@ int main() {
                                         gabarito[i][j] = sudoku[i][j];
                                     }
                                 }
-
-
                                 break;
                             }
 
@@ -66,14 +64,6 @@ int main() {
                                         gabarito[i][j] = sudoku[j][i];
                                     }
                                 }
-
-                                for (int i = 0; i < TAM; i++) {
-                                    for (int j = 0; j < TAM; j++) {
-                                        cout << gabarito[i][j] << " ";
-                                    }
-                                    cout << endl;
-                                }
-
                                 break;
                             }
 
@@ -85,13 +75,6 @@ int main() {
                                     }
                                 }
 
-                                for (int i = 0; i < TAM; i++) {
-                                    for (int j = 0; j < TAM; j++) {
-                                        cout << gabarito[i][j] << " ";
-                                    }
-                                    cout << endl;
-                                }
-
                                 break;
                             }
 
@@ -101,13 +84,6 @@ int main() {
                                     for (int j = TAM - 1; j >= 0; j--) {
                                         gabarito[i][TAM - 1 - j] = sudoku[i][j];
                                     }
-                                }
-
-                                for (int i = 0; i < TAM; i++) {
-                                    for (int j = 0; j < TAM; j++) {
-                                        cout << gabarito[i][j] << " ";
-                                    }
-                                    cout << endl;
                                 }
 
                                 break;
@@ -137,27 +113,32 @@ int main() {
                     int count = 0;
                     while (count < 41) { // laço do jogo
                         system("clear");
+                        cout << "X   " << "1 2 3 4 5 6 7 8 9\n\n";
                         for (int i = 0; i < TAM; i++) { // imprime a matrix jogo
+                            cout << "\033[0m" << i + 1 << "   ";
                             for (int j = 0; j < TAM; j++) {
                                 if (matriz_jogo[i][j] != 0) {
-                                    cout << matriz_jogo[i][j] << " ";
+                                    cout << "\033[0m" << matriz_jogo[i][j] << " ";
                                 }
                                 else {
-                                    cout << "X ";
+                                    cout << "\033[31mX ";
                                 }
                             }
                             cout << "\n";
                         }
-                        cout << "\nescolha a posição (ex: 1 1): ";
+                        cout << "\n\033[0mescolha a posição (ex: 1 1): ";
                         int index1, index2;
                         cin >> index1 >> index2;
 
-                        if (!(index1 < 1 || index1 > 9 || index2 < 1 || index2 > 9)) { // verifica se os numeros estão no tamanho da matriz
+                        if (!(index1 < 1 || index1 > 9 || index2 < 1 || index2 > 9)) {// verifica se os numeros estão no tamanho da matriz
+
                             if (matriz_jogo[index1 - 1][index2 - 1] == 0) { // verifica se pode colocar o numero na posição
                                 cout << "\n escolha o numero (1 - 9): ";
                                 int numero_selecionado;
                                 cin >> numero_selecionado;
-                                if (!(numero_selecionado < 1 || numero_selecionado > 9)) { // caso o numero selecionado esteja no range de 1-9
+
+                                if (!(numero_selecionado < 1 || numero_selecionado > 9)) {// caso o numero selecionado esteja no range de 1-9
+
                                     if (numero_selecionado == gabarito[index1 - 1][index2 - 1]) { // caso bata com a matriz gabarito
                                         matriz_jogo[index1 - 1][index2 - 1] = numero_selecionado;
                                         count++; // conta até 41 para terminar o laço e finalizar o jogo
@@ -199,7 +180,7 @@ int main() {
                     cout << "Como jogar:\n\n";
                     cout << "Escolha uma coordenada (que nao tenha numero), decidindo a linha e a coluna.\n\n";
                     cout << "Insira a letra da linha, o numero da coluna e em seguida o numero escolhido.\n\n";
-                    cout << "Exemplo:   a 2 6   (linha \"a\", coluna \"2\" e o numero inserido e 6 )\n\n";
+                    cout << "Exemplo:   a 2 6   (linha \"1\", coluna \"2\" e o numero inserido e 6 )\n\n";
                     system("read 0 -p");
                     system("clear");
                     break;
