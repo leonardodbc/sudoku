@@ -54,7 +54,7 @@ int main(int argc, char const* argv[]) {
       std::cin >> numberSelect;
       if (!(numberSelect < 1 || numberSelect > 9)) {
         matriz[index1 - 1][index2 - 1] = numberSelect;
-        count--;
+        count++;
       }
     }
 
